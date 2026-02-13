@@ -2,6 +2,12 @@
 pipeline {
   agent any
   stages {
+    stage('Check Java Version') {
+  steps {
+    sh 'java -version'
+    sh 'javac -version'
+  }
+}
     stage('Build') {
       steps {
         sh 'mvn clean package -DskipTests=true'
